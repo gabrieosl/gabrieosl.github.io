@@ -1,43 +1,49 @@
 import React, { useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Container, SelectButton, DropdownList } from './styles';
 
 interface Language {
   flag: string;
-  country: string;
+  code: string;
   language: string;
 }
 
 const AVAILABLE_LANGUAGES: Language[] = [
   {
-    flag: '🇧🇷',
-    country: 'BR',
-    language: 'Português',
-  },
-  {
     flag: '🇬🇧',
-    country: 'US',
+    code: 'en',
     language: 'English',
   },
   {
+    flag: '🇧🇷',
+    code: 'pt',
+    language: 'Português',
+  },
+  {
     flag: '🇫🇷',
-    country: 'FR',
+    code: 'fr',
     language: 'Français',
   },
 ];
 
 const LanguageButton: React.FC = () => {
+  const { i18n } = useTranslation('common');
   const [active, setActive] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState<Language>({
-    flag: '🇧🇷',
-    country: 'BR',
-    language: 'Português',
-  });
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(
+    () =>
+      AVAILABLE_LANGUAGES.find(lang => lang.code === i18n.language) ||
+      AVAILABLE_LANGUAGES[0],
+  );
 
-  const updateLanguage = useCallback((language: Language) => {
-    setCurrentLanguage(language);
-    setActive(false);
-  }, []);
+  const updateLanguage = useCallback(
+    (language: Language) => {
+      setCurrentLanguage(language);
+      setActive(false);
+      i18n.changeLanguage(language.code);
+    },
+    [i18n],
+  );
 
   return (
     <Container>

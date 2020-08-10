@@ -4,6 +4,7 @@ export const Container = styled.button`
   width: 58px;
   height: 28px;
   overflow: hidden;
+  z-index: 100;
 
   background: ${props => props.theme.background};
   border-radius: 14px;

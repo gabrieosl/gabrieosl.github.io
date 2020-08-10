@@ -16,14 +16,19 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   margin: 0 40px;
 
-  > div {
+  div.buttons {
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
+
+    > button {
+      margin: 10px;
+      font-size: 0.75rem;
+    }
   }
 `;
 
@@ -60,4 +65,16 @@ export const More = styled.div`
     width: 44px;
     height: 44px;
   }
+`;
+
+export const GetCV = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 2rem;
+  height: 1.3rem;
+  transform: none;
+
+  background: red;
+  border-radius: 10px;
 `;

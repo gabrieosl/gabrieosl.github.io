@@ -1,70 +1,53 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Galaxy } from './styles';
 import './test.css';
 
 const SolarSystem: React.FC = () => {
   return (
-    <Container className="solarsystem">
-      <li className="sun">
-        <a href="#sun">
+    <Container>
+      <Galaxy>
+        {/* <li> makes an orbit circle. <span> makes the planet circle */}
+        <li className="sun">
           <span>Sun</span>
-        </a>
-      </li>
-      <li className="mercury">
-        <a href="#mercury">
+        </li>
+        <li className="mercury">
           <span>Mercury</span>
-        </a>
-      </li>
-      <li className="venus">
-        <a href="#venus">
+        </li>
+        <li className="venus">
           <span>Venus</span>
-        </a>
-      </li>
-      <li className="earth">
-        <a href="#earth">
+        </li>
+        <li className="earth">
           <span>
             Earth
-            <span className="moon"> &amp; Moon</span>
+            <span className="moon">Moon</span>
           </span>
-        </a>
-      </li>
-      <li className="mars">
-        <a href="#mars">
+        </li>
+        <li className="mars">
           <span>Mars</span>
-        </a>
-      </li>
-      <li className="asteroids_meteorids">
-        <span>Asteroids &amp; Meteorids</span>
-      </li>
-      <li className="jupiter">
-        <a href="#jupiter">
+        </li>
+        <li className="asteroids_meteorids">
+          <span>Asteroids &amp; Meteorids</span>
+        </li>
+        <li className="jupiter">
           <span>Jupiter</span>
-        </a>
-      </li>
-      <li className="saturn">
-        <a href="#saturn">
+        </li>
+        <li className="saturn">
           <span>
             Saturn &amp;
             <span className="ring">Ring</span>
           </span>
-        </a>
-      </li>
-      <li className="uranus">
-        <a href="#uranus">
+        </li>
+        <li className="uranus">
           <span>Uranus</span>
-        </a>
-      </li>
-      <li className="neptune">
-        <a href="#neptune">
+        </li>
+        <li className="neptune">
           <span>Neptune</span>
-        </a>
-      </li>
-      <li className="pluto">
-        <a href="#pluto">
+        </li>
+        <li className="pluto">
           <span>Pluto</span>
-        </a>
-      </li>
+        </li>
+      </Galaxy>
     </Container>
   );
 };

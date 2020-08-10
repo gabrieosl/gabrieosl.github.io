@@ -3,6 +3,7 @@ import Button from '../Button';
 
 export const Container = styled.div`
   position: relative;
+  z-index: 101;
 
   display: flex;
   align-items: center;

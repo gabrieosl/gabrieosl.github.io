@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { FiMenu } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 import ThemeToggler from '../ThemeToggler';
 import LanguageSwitch from '../LanguageSwitch';
@@ -7,6 +8,8 @@ import LanguageSwitch from '../LanguageSwitch';
 import { Container, Logo, ExpandMenu, Navigation } from './styles';
 
 const Header: React.FC = () => {
+  const { t } = useTranslation('common');
+
   const [showDrawer, setShowDrawer] = useState(false);
   const [currentScroll, setCurrentScroll] = useState(0);
   const [headerSize, setHeaderSize] = useState<'small' | 'large'>('large');
@@ -33,18 +36,17 @@ const Header: React.FC = () => {
   return (
     <Container headerSize={headerSize} showHeader={showHeader}>
       <Logo>
-        <strong>Gabriel Lima</strong>
-        <small>Fullstack Developer</small>
+        <strong>GL</strong>
+        <small>{t('title')}</small>
       </Logo>
       <ExpandMenu onClick={() => setShowDrawer(!showDrawer)}>
         <FiMenu />
       </ExpandMenu>
       <Navigation showDrawer={showDrawer}>
         <ThemeToggler />
-        <a href="#home">Home</a>
-        <a href="#projects">Projetos</a>
-        <a href="#cv">CV</a>
-        <a href="#about">Sobre</a>
+        <a href="#home">{t('home')}</a>
+        <a href="#projects">{t('projects')}</a>
+        <a href="#about">{t('about')}</a>
         <LanguageSwitch />
       </Navigation>
     </Container>

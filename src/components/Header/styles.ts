@@ -16,6 +16,7 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
   transition: 0.4s;
 
+  /* background: none; */
   background: ${props => props.theme.background};
   padding: 0 20px;
   box-shadow: 0 1px 1px ${props => `${props.theme.text}16`};
@@ -33,16 +34,10 @@ export const Container = styled.div<ContainerProps>`
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-
-  strong {
-    color: ${props => props.theme.text};
-    padding: 15px;
-    border: 2px solid ${props => props.theme.text};
-    border-radius: 4px;
-  }
+  color: ${props => props.theme.text};
 
   small {
-    color: ${props => props.theme.text};
+    margin-left: 10px;
   }
 `;
 
@@ -68,6 +63,12 @@ export const Navigation = styled.nav<NavigationProps>`
   display: ${props => (props.showDrawer ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
+
+  a {
+    color: ${props => props.theme.text};
+    margin: 0 0.7em;
+    font-size: 0.75em;
+  }
 
   @media all and (min-width: 769px) {
     position: static;

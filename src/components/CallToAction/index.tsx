@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
 import ThemeToggler from '../ThemeToggler';
@@ -9,6 +10,7 @@ import SolarSystem from './SolarSystem';
 import { Container, Wrapper, Tools, More } from './styles';
 
 const CallToAction: React.FC = () => {
+  const { t } = useTranslation('common');
   return (
     <Container>
       <Tools>
@@ -16,14 +18,42 @@ const CallToAction: React.FC = () => {
         <LanguageSwitch />
       </Tools>
       <Wrapper>
-        <h4>Gabriel Lima</h4>
-        <h1>Fullstack developer</h1>
-        <div>
-          <Button variant="filled" color="primary" height="2em" width="9em">
-            <span>View my work</span>
+        <div className="titles">
+          <h4>Gabriel Lima</h4>
+          <h1>{t('title')}</h1>
+        </div>
+        <div className="buttons">
+          <Button
+            variant="filled"
+            color="primary"
+            height="2em"
+            width="9em"
+            onClick={
+              () =>
+                window.scrollTo({
+                  top: 2 * window.innerHeight,
+                  behavior: 'smooth',
+                })
+              // eslint-disable-next-line react/jsx-curly-newline
+            }
+          >
+            <span>{t('viewMyWork')}</span>
           </Button>
-          <Button variant="outlined" color="default" height="2em" width="9em">
-            <span>Get in touch</span>
+          <Button
+            variant="outlined"
+            color="default"
+            height="2em"
+            width="9em"
+            onClick={
+              () =>
+                window.scrollTo({
+                  top: 3 * window.innerHeight,
+                  behavior: 'smooth',
+                })
+              // eslint-disable-next-line react/jsx-curly-newline
+            }
+          >
+            <span>{t('getInTouch')}</span>
           </Button>
         </div>
       </Wrapper>
