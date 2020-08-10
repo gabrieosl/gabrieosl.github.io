@@ -1,28 +1,34 @@
 import styled, { keyframes } from 'styled-components';
 
 const orbit = keyframes`
-  from {
+  /* from {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
   }
   to {
     transform: translateX(-50%) translateY(-50%) rotate(360deg);
-  }
+  } */
 `;
 const moon = keyframes`
-  from {
+  /* from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
+  } */
 `;
 
 export const Container = styled.div`
   flex: 1;
   height: 100%;
+  z-index: 101;
 
   display: flex;
   align-items: center;
+
+  @media all and (max-width: 768px) {
+    height: 50%;
+    width: 100%;
+  }
 `;
 
 export const Galaxy = styled.ul`
@@ -31,7 +37,7 @@ export const Galaxy = styled.ul`
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  z-index: 101;
 
   list-style: none;
   transition: all 0.09s ease-in;
@@ -42,6 +48,13 @@ export const Galaxy = styled.ul`
     position: absolute;
     border: 1px solid ${props => `${props.theme.text}16`};
     border-radius: 50%;
+    background: ${props => props.theme.background};
+    transition: all 0.2s;
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+
+    &:hover {
+      border: 1px solid ${props => `${props.theme.text}64`};
+    }
     span {
       display: block;
       position: absolute;
@@ -160,8 +173,8 @@ export const Galaxy = styled.ul`
     }
 
     &.saturn {
-      width: 70%;
-      padding-top: 70%;
+      width: 75%;
+      padding-top: 75%;
       top: 50%;
       left: 50%;
       z-index: 94;
@@ -174,21 +187,20 @@ export const Galaxy = styled.ul`
 
         &.ring {
           position: absolute;
-          width: 12px;
-          height: 12px;
-          border-radius: 8px;
-          background: none;
-          border: 2px solid #5a4e34;
+          width: 14px;
+          height: 2px;
+          background: #5a4e34;
+          border: none;
           left: 0;
-          top: 0;
-          transform: skewY(50deg);
+          top: 50%;
+          transform: translateX(-2px) translateY(-50%) rotate(45deg);
         }
       }
     }
 
     &.uranus {
-      width: 80%;
-      padding-top: 80%;
+      width: 100%;
+      padding-top: 100%;
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
@@ -202,8 +214,8 @@ export const Galaxy = styled.ul`
     }
 
     &.neptune {
-      width: 90%;
-      padding-top: 90%;
+      width: 150%;
+      padding-top: 150%;
       top: 50%;
       left: 50%;
       z-index: 92;
@@ -217,8 +229,8 @@ export const Galaxy = styled.ul`
     }
 
     &.pluto {
-      width: 100%;
-      padding-top: 100%;
+      width: 200%;
+      padding-top: 200%;
       top: 50%;
       left: 50%;
       z-index: 91;

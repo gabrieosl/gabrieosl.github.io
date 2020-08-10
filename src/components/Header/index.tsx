@@ -18,19 +18,19 @@ const Header: React.FC = () => {
     const nextScrollTop = document.documentElement.scrollTop;
 
     if (nextScrollTop < currentScroll) setHeaderSize('large');
-    else if (nextScrollTop > window.innerHeight * 0.95) setHeaderSize('small');
+    else if (nextScrollTop > window.innerHeight * 0.8) setHeaderSize('small');
 
     setCurrentScroll(nextScrollTop);
   }, [currentScroll]);
 
-  const showHeader = useMemo(() => currentScroll > window.innerHeight * 0.8, [
+  const showHeader = useMemo(() => currentScroll > window.innerHeight * 0.5, [
     currentScroll,
   ]);
 
   useEffect(() => {
-    window.onscroll = scrollPage;
+    window.addEventListener('scroll', scrollPage);
     return () => {
-      window.onscroll = null;
+      window.removeEventListener('scroll', scrollPage);
     };
   }, [scrollPage]);
   return (

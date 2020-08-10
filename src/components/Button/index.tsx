@@ -33,8 +33,15 @@ const Container = styled.button<StylesProps>`
     css`
       width: ${props.width};
     `};
-  background: ${props =>
-    props.variant === 'filled' ? props.theme[props.color] : 'none'};
+
+  background: ${props => props.theme.background};
+  ${props =>
+    props.variant === 'filled' &&
+    css`
+      background: ${props_ => props_.theme[props.color]};
+      width: ${props.width};
+    `};
+
   color: ${props => {
     if (props.variant === 'filled') return '#fff';
     return props.theme[props.color];

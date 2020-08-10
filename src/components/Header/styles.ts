@@ -9,7 +9,7 @@ export const Container = styled.div<ContainerProps>`
   height: ${props => (props.headerSize === 'small' ? '60px' : '120px')};
   position: fixed;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
@@ -27,7 +27,8 @@ export const Container = styled.div<ContainerProps>`
       transform: translateY(-100%);
     `}
 
-  @media all and (min-width: 769px) {
+  @media all and (max-width: 768px) {
+    height: 60px;
   }
 `;
 
