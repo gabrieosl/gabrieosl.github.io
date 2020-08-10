@@ -6,10 +6,15 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    font-family: 'Fira Code', sans-serif;
   }
 
   *:focus {
     outline: 0;
+  }
+
+  html {
+    font-size: 18px;
   }
 
   html, body, #root {
@@ -21,7 +26,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: 16px 'Inconsolata', sans-serif;
+    font-size: 1rem;
   }
 
   a {
@@ -34,5 +39,16 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  @media all and (min-width: 769px) {
+    html {
+      font-size: 24px;
+    }
+  }
+  @media all and (min-width: 1920px) {
+    html {
+      font-size: 42px;
+    }
   }
 `;

@@ -6,6 +6,7 @@ import { darkTheme, lightTheme } from '../styles/themes';
 
 interface ContextData {
   toogleTheme(): void;
+  selectedTheme: string;
 }
 
 const ThemeContext = createContext<ContextData>({} as ContextData);
@@ -18,7 +19,7 @@ const Theme: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ toogleTheme }}>
+    <ThemeContext.Provider value={{ selectedTheme: theme, toogleTheme }}>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         {children}
       </ThemeProvider>
