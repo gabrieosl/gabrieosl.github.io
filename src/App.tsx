@@ -4,8 +4,9 @@ import Context from './context';
 import Header from './components/Header';
 import CallToAction from './components/CallToAction';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
+import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import GoToTop from './components/GoToTop';
 
 const App: React.FC = () => {
   return (
@@ -13,8 +14,9 @@ const App: React.FC = () => {
       <Header />
       <CallToAction />
       <Skills />
-      <Projects />
+      <Portfolio />
       <Contact />
+      <GoToTop />
     </Context>
   );
 };

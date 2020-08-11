@@ -46,7 +46,7 @@ export default createGlobalStyle`
       font-size: 24px;
     }
   }
-  @media all and (min-width: 1920px) {
+  @media all and (min-width: 1921px) {
     html {
       font-size: 42px;
     }

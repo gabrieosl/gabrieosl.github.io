@@ -27,7 +27,7 @@ const CallToAction: React.FC = () => {
     };
   }, []);
   return (
-    <Container>
+    <Container id="home">
       <Tools>
         <ThemeToggler />
         <LanguageSwitch />
@@ -46,7 +46,7 @@ const CallToAction: React.FC = () => {
             onClick={
               () =>
                 window.scrollTo({
-                  top: 2 * window.innerHeight,
+                  top: 2 * window.innerHeight - 2 * 60,
                   behavior: 'smooth',
                 })
               // eslint-disable-next-line react/jsx-curly-newline

@@ -1,20 +1,20 @@
 import styled, { keyframes } from 'styled-components';
 
 const orbit = keyframes`
-  /* from {
+  from {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
   }
   to {
     transform: translateX(-50%) translateY(-50%) rotate(360deg);
-  } */
+  }
 `;
 const moon = keyframes`
-  /* from {
+  from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  } */
+  }
 `;
 
 export const Container = styled.div`
@@ -28,10 +28,15 @@ export const Container = styled.div`
   @media all and (max-width: 768px) {
     height: 50%;
     width: 100%;
+    transform: translateY(15%);
   }
 `;
 
-export const Galaxy = styled.ul`
+interface GalaxyProps {
+  isPlaying: boolean;
+}
+
+export const Galaxy = styled.ul<GalaxyProps>`
   position: relative;
   right: 0;
   top: 0;
@@ -72,9 +77,20 @@ export const Galaxy = styled.ul`
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
       border: none;
-      box-shadow: 0 0 50px #c90;
+      box-shadow: 0 0 500px 10px #c90;
       z-index: 100;
       transition: all 0.2s ease-in;
+
+      svg {
+        display: block;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: #fff;
+      }
     }
 
     &.mercury {
@@ -124,8 +140,8 @@ export const Galaxy = styled.ul`
           width: 4px;
           height: 4px;
           background: #ccc;
-          top: 12px;
-          left: 12px;
+          top: -50%;
+          left: -50%;
         }
       }
     }
@@ -150,7 +166,6 @@ export const Galaxy = styled.ul`
       top: 50%;
       left: 50%;
       z-index: 96;
-      z-index: 1;
       background: url(http://neography.com/experiment/circles/solarsystem/asteroids_meteorids.png)
         center no-repeat;
       background-size: 100%;
@@ -248,12 +263,12 @@ export const Galaxy = styled.ul`
   li {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-name: ${orbit};
+    animation-name: ${props => (props.isPlaying ? orbit : null)};
   }
   li.earth span {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-name: ${moon};
+    animation-name: ${props => (props.isPlaying ? moon : null)};
   }
   li.mercury {
     animation-duration: 5s;

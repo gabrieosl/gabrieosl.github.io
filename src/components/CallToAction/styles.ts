@@ -12,7 +12,7 @@ export const Container = styled.div`
   color: ${props => props.theme.text};
 
   @media all and (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
 
   @media all and (max-width: 768px) {
     height: 50%;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
   }
 `;
 

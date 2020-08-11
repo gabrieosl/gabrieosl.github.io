@@ -55,15 +55,10 @@ interface NavigationProps {
   showDrawer: boolean;
 }
 export const Navigation = styled.nav<NavigationProps>`
-  position: fixed;
-  width: 350px;
-  height: 100%;
-  top: 0;
-  right: 0;
-
-  display: ${props => (props.showDrawer ? 'flex' : 'none')};
-  flex-direction: column;
-  align-items: center;
+  > div {
+    display: flex;
+    align-items: center;
+  }
 
   a {
     color: ${props => props.theme.text};
@@ -71,12 +66,41 @@ export const Navigation = styled.nav<NavigationProps>`
     font-size: 0.75em;
   }
 
-  @media all and (min-width: 769px) {
-    position: static;
-    width: unset;
-    height: unset;
+  @media all and (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: none;
+    transform: translateX(100%);
+    transition: 0.4s;
+    opacity: 0;
 
-    display: flex;
-    flex-direction: row;
+    > div {
+      transform: translateX(100%);
+      transition: 0.4s;
+    }
+
+    ${props =>
+      props.showDrawer &&
+      css`
+        opacity: 1;
+        background: #00000064;
+        transform: translateX(0);
+        transition: none;
+        > div {
+          float: right;
+          height: 100%;
+          transform: translateX(0);
+          width: 270px;
+          background: ${props => props.theme.background};
+
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: stretch;
+        }
+      `}
   }
 `;

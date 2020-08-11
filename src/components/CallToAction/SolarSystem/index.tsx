@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FiPause, FiPlay } from 'react-icons/fi';
 
 import { Container, Galaxy } from './styles';
 import './test.css';
 
 const SolarSystem: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(true);
   return (
     <Container>
-      <Galaxy>
+      <Galaxy isPlaying={isPlaying}>
         {/* <li> makes an orbit circle. <span> makes the planet circle */}
-        <li className="sun">
+        <li className="sun" onClick={() => setIsPlaying(!isPlaying)}>
+          {isPlaying ? <FiPause /> : <FiPlay />}
           <span>Sun</span>
         </li>
         <li className="mercury">

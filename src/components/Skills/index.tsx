@@ -24,16 +24,20 @@ const CallToAction: React.FC = () => {
         <span>nodejs</span>
       </Skill>
       <Skill>
-        <img src="https://cdn.svgporn.com/logos/python.svg" alt="python" />
-        <span>python</span>
-      </Skill>
-      <Skill>
-        <img src="https://cdn.svgporn.com/logos/django.svg" alt="django" />
-        <span>django</span>
-      </Skill>
-      <Skill>
-        <img src="https://cdn.svgporn.com/logos/express.svg" alt="express" />
+        <img
+          src="https://cdn.svgporn.com/logos/express.svg"
+          alt="express"
+          className="invert"
+        />
         <span>express</span>
+      </Skill>
+      <Skill>
+        <img
+          src="https://cdn.svgporn.com/logos/nextjs.svg"
+          alt="nextjs"
+          className="invert"
+        />
+        <span>nextjs</span>
       </Skill>
       <Skill>
         <img src="https://cdn.svgporn.com/logos/docker-icon.svg" alt="docker" />
@@ -48,7 +52,7 @@ const CallToAction: React.FC = () => {
           src="https://cdn.svgporn.com/logos/postgresql.svg"
           alt="postgresql"
         />
-        <span>postgresql</span>
+        <span>postgres</span>
       </Skill>
       <Skill>
         <img src="https://cdn.svgporn.com/logos/react.svg" alt="react" />
@@ -70,12 +74,12 @@ const CallToAction: React.FC = () => {
         <span>material</span>
       </Skill>
       <Skill>
-        <img src="https://cdn.svgporn.com/logos/nextjs.svg" alt="nextjs" />
-        <span>nextjs</span>
-      </Skill>
-      <Skill>
         <img src="https://cdn.svgporn.com/logos/aws.svg" alt="aws" />
         <span>aws</span>
+      </Skill>
+      <Skill>
+        <img src="https://cdn.svgporn.com/logos/firebase.svg" alt="firebase" />
+        <span>firebase</span>
       </Skill>
     </Container>
   );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: calc(100% - 60px);
+  min-height: calc(100% - 60px);
 
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +29,10 @@ export const Skill = styled.div`
   img {
     width: 6em;
     height: 6em;
+
+    &.invert {
+      filter: ${props => `invert(${props.theme.invert})`};
+    }
   }
 
   span {
@@ -39,6 +43,7 @@ export const Skill = styled.div`
     height: 6em;
     text-align: center;
     text-transform: capitalize;
+    color: ${props => props.theme.text};
   }
 
   &:hover {
@@ -57,6 +62,17 @@ export const Skill = styled.div`
     img {
       width: 3em;
       height: 3em;
+    }
+
+    span {
+      position: absolute;
+      display: block;
+      /* width: 3em; */
+      height: 3em;
+      text-align: center;
+      text-transform: capitalize;
+      font-size: 0.6em;
+      color: ${props => props.theme.text};
     }
   }
 `;

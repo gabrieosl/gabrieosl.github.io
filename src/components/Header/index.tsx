@@ -17,11 +17,12 @@ const Header: React.FC = () => {
   const scrollPage = useCallback(() => {
     const nextScrollTop = document.documentElement.scrollTop;
 
-    if (nextScrollTop < currentScroll) setHeaderSize('large');
-    else if (nextScrollTop > window.innerHeight * 0.8) setHeaderSize('small');
-
-    setCurrentScroll(nextScrollTop);
-  }, [currentScroll]);
+    setCurrentScroll(prev => {
+      if (nextScrollTop < prev) setHeaderSize('large');
+      else if (nextScrollTop > window.innerHeight * 0.8) setHeaderSize('small');
+      return nextScrollTop;
+    });
+  }, []);
 
   const showHeader = useMemo(() => currentScroll > window.innerHeight * 0.5, [
     currentScroll,
@@ -42,12 +43,25 @@ const Header: React.FC = () => {
       <ExpandMenu onClick={() => setShowDrawer(!showDrawer)}>
         <FiMenu />
       </ExpandMenu>
-      <Navigation showDrawer={showDrawer}>
-        <ThemeToggler />
-        <a href="#home">{t('home')}</a>
-        <a href="#projects">{t('projects')}</a>
-        <a href="#about">{t('about')}</a>
-        <LanguageSwitch />
+      <Navigation
+        showDrawer={showDrawer}
+        onClick={(e: any) =>
+          e.target.id === e.currentTarget.id && setShowDrawer(false)
+        }
+      >
+        <div className="wrapper">
+          <ThemeToggler />
+          <a href="#home">
+            <h5>{t('home')}</h5>
+          </a>
+          <a href="#portfolio">
+            <h5>{t('portfolio')}</h5>
+          </a>
+          <a href="#about">
+            <h5>{t('about')}</h5>
+          </a>
+          <LanguageSwitch />
+        </div>
       </Navigation>
     </Container>
   );
