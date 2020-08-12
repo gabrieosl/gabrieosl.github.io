@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
+import { FiGithub, GoBrowser } from 'react-icons/all';
 
-import { Container, Content, Project } from './styles';
+import example from './example.png';
+import Button from '../Button';
+
+import { Container, Content, Card } from './styles';
+
+interface ProjectData {
+  id: string;
+  description: string;
+  name: string;
+  html_url: string;
+  homepage: string;
+}
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<any[]>([]);
+  const { t } = useTranslation('common');
+
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(10);
 
   useEffect(() => {
     async function getProjects() {
@@ -19,13 +35,57 @@ const Projects: React.FC = () => {
   }, []);
   return (
     <Container id="portfolio">
-      <h3>Portfolio</h3>
+      <h3>{t('portfolio')}</h3>
       <Content>
-        {projects.map(project => (
-          <Project key={project.id}>
-            <h4>{project.name}</h4>
-            <span>{project.description}</span>
-          </Project>
+        {projects.map((project, index) => (
+          <Card
+            position={index}
+            main={currentProjectIndex}
+            onClick={() => setCurrentProjectIndex(index)}
+          >
+            <h5>{project.name}</h5>
+            <span className="description">{project.description}</span>
+            <img src={example} alt="project" />
+            <h6>{t('tecnologies')}</h6>
+            <div className="technologies">
+              <img
+                src="https://cdn.svgporn.com/logos/typescript-icon.svg"
+                alt="typescript"
+              />
+              <img
+                src="https://cdn.svgporn.com/logos/nodejs-icon.svg"
+                alt="nodejs"
+              />
+              <img
+                src="https://cdn.svgporn.com/logos/mongodb.svg"
+                alt="mongodb"
+              />
+              <img
+                src="https://cdn.svgporn.com/logos/postgresql.svg"
+                alt="postgresql"
+              />
+            </div>
+            <div className="buttons">
+              <Button
+                variant="filled"
+                color="text"
+                height="34px"
+                onClick={() => window.open(project.html_url, '_blank')}
+              >
+                <FiGithub />
+                &nbsp;GitHub
+              </Button>
+              <Button
+                variant="outlined"
+                color="text"
+                height="34px"
+                onClick={() => window.open(project.homepage, '_blank')}
+              >
+                <GoBrowser />
+                &nbsp;Live version
+              </Button>
+            </div>
+          </Card>
         ))}
       </Content>
     </Container>

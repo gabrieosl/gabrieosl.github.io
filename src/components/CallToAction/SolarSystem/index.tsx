@@ -5,7 +5,7 @@ import { Container, Galaxy } from './styles';
 import './test.css';
 
 const SolarSystem: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <Container>
       <Galaxy isPlaying={isPlaying}>
