@@ -5,5 +5,18 @@
   "home": "Início",
   "portfolio": "Portfólio",
   "cv": "Baixar CV",
-  "about": "Sobre"
+  "about": "Sobre",
+  "technologies": "Technologias",
+  "name-required": "Nome obrigatório!",
+  "mail-required": "E-mail obrigatório!",
+  "mail-invalid": "E-mail inválido",
+  "message-required": "Messagem obrigatória!",
+  "message-minimum": "Por favor escreva ao menos 50 caracteres.",
+  "lets-work-together": "Vamos trabalhar juntos ?",
+  "fill-out-and-reach-me": "Preencha e me envie uma mensagem.",
+  "your-name": "Seu nome",
+  "your-email": "Seu e-mail",
+  "your-message": "Conte-me sobre o que você precisa",
+  "send": "Enviar",
+  "sent": "Enviado :)"
 }

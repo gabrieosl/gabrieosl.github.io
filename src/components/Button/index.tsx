@@ -3,14 +3,26 @@ import styled, { css } from 'styled-components';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'text' | 'outlined' | 'filled';
-  color?: 'default' | 'primary' | 'secondary' | 'text' | 'background';
+  color?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'text'
+    | 'background'
+    | 'success';
   width?: string;
   height?: string;
 }
 
 interface StylesProps {
   variant: 'text' | 'outlined' | 'filled';
-  color: 'default' | 'primary' | 'secondary' | 'text' | 'background';
+  color:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'text'
+    | 'background'
+    | 'success';
   width?: string;
   height?: string;
 }

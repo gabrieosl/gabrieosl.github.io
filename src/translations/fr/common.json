@@ -6,5 +6,17 @@
   "portfolio": "Portfolio",
   "projects": "Portefeuille",
   "cv": "Voir mon CV",
-  "about": "À propos"
+  "about": "À propos",
+  "name-required": "Nom requis!",
+  "mail-required": "E-mail requis!",
+  "mail-invalid": "E-mail invalide",
+  "message-required": "Message requis!",
+  "message-minimum": "Veuillez écrire au moins 50 caractères.",
+  "lets-work-together": "Travaillons ensemble ?",
+  "fill-out-and-reach-me": "Remplissez et envoyez-moi un message.",
+  "your-name": "Votre nom",
+  "your-email": "Votre e-mail",
+  "your-message": "Dites-moi ce dont vous avez besoin",
+  "send": "Envoyer",
+  "sent": "Envoyé :)"
 }

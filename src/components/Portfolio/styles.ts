@@ -46,10 +46,11 @@ export const Card = styled.div<CardProps>`
   height: 90%;
 
   background: ${props => `${props.theme.default}32`};
+
   border-radius: 10px;
   margin: 0.5rem;
   padding: 1rem 0.5rem;
-  box-shadow: 0px 0px 20px ${props => `${props.theme.text}32`};
+  box-shadow: 0px 0px 20px #00000032;
 
   transition: 0.4s;
 
@@ -60,7 +61,7 @@ export const Card = styled.div<CardProps>`
     margin: 8px 0;
   }
 
-  img {
+  img.example {
     width: 100%;
     /* object fi */
     /* border: 1px solid red; */
@@ -71,13 +72,23 @@ export const Card = styled.div<CardProps>`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: flex-start;
 
     margin: 8px 0;
 
     img {
-      width: 40px;
+      max-width: 70px;
       height: 40px;
       margin: 10px;
+      &.invert {
+        ${props =>
+          props.theme.invert &&
+          css`
+            background: ${props.theme.text};
+            border-radius: 4px;
+            padding: 3px;
+          `}
+      }
     }
   }
 
@@ -99,7 +110,7 @@ export const Card = styled.div<CardProps>`
     css`
       display: flex;
       z-index: 10;
-      background: ${props.theme.background};
+      background: ${props.theme.background2};
     `}
 
   ${props =>

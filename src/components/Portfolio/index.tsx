@@ -45,12 +45,17 @@ const Projects: React.FC = () => {
           >
             <h5>{project.name}</h5>
             <span className="description">{project.description}</span>
-            <img src={example} alt="project" />
+            <img src={example} alt="project" className="example" />
             <h6>{t('tecnologies')}</h6>
             <div className="technologies">
               <img
                 src="https://cdn.svgporn.com/logos/typescript-icon.svg"
                 alt="typescript"
+              />
+              <img
+                src="https://cdn.svgporn.com/logos/express.svg"
+                alt="express"
+                className="invert"
               />
               <img
                 src="https://cdn.svgporn.com/logos/nodejs-icon.svg"
@@ -59,6 +64,7 @@ const Projects: React.FC = () => {
               <img
                 src="https://cdn.svgporn.com/logos/mongodb.svg"
                 alt="mongodb"
+                className="invert"
               />
               <img
                 src="https://cdn.svgporn.com/logos/postgresql.svg"

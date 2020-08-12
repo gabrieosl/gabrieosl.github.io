@@ -1,4 +1,10 @@
-import React, { useState, useCallback, createContext, useContext } from 'react';
+import React, {
+  useState,
+  useCallback,
+  createContext,
+  useContext,
+  useEffect,
+} from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from '../styles/global';
@@ -12,11 +18,15 @@ interface ContextData {
 const ThemeContext = createContext<ContextData>({} as ContextData);
 
 const Theme: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('@gabrieosl/theme') || 'light',
+  );
 
   const toogleTheme = useCallback(() => {
     setTheme(state => (state === 'light' ? 'dark' : 'light'));
   }, []);
+
+  useEffect(() => localStorage.setItem('@gabrieosl/theme', theme), [theme]);
 
   return (
     <ThemeContext.Provider value={{ selectedTheme: theme, toogleTheme }}>
