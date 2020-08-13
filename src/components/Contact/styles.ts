@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Form as UnformForm } from '@unform/web';
 
 export const Container = styled.div`
-  height: calc(100% - 60px);
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -25,6 +25,7 @@ export const Wrapper = styled.div`
 
   margin: 0 auto;
   padding: 20px;
+  padding-top: 60px;
 
   @media all and (max-width: 768px) {
     width: 100%;

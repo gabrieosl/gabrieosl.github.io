@@ -16,7 +16,6 @@ const CallToAction: React.FC = () => {
 
   useEffect(() => {
     function onScroll() {
-      console.log(document.documentElement.scrollTop);
       if (document.documentElement.scrollTop > 60)
         return setIsOnFirstPage(true);
       return setIsOnFirstPage(false);
@@ -42,15 +41,8 @@ const CallToAction: React.FC = () => {
             variant="filled"
             color="primary"
             height="2em"
-            width="9em"
-            onClick={
-              () =>
-                window.scrollTo({
-                  top: 2 * window.innerHeight - 2 * 60,
-                  behavior: 'smooth',
-                })
-              // eslint-disable-next-line react/jsx-curly-newline
-            }
+            width="10em"
+            onClick={() => window.location.assign('/#contact')}
           >
             <span>{t('viewMyWork')}</span>
           </Button>
@@ -58,7 +50,7 @@ const CallToAction: React.FC = () => {
             variant="outlined"
             color="default"
             height="2em"
-            width="9em"
+            width="10em"
             onClick={
               () =>
                 window.scrollTo({

@@ -3,7 +3,9 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   overflow: hidden;
   height: calc(100% - 60px);
+  min-height: 700px;
   width: 100%;
+  flex: 1;
 
   display: flex;
   flex-direction: column;
@@ -21,8 +23,8 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
+  height: calc(100% - 60px);
 
-  flex: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -42,8 +44,8 @@ export const Card = styled.div<CardProps>`
   flex-shrink: 0;
   flex-direction: column;
   width: 450px;
-  max-width: 90vw;
-  height: 90%;
+  max-width: 85vw;
+  /* min-height: 600px; */
 
   background: ${props => `${props.theme.default}32`};
 
@@ -101,36 +103,83 @@ export const Card = styled.div<CardProps>`
     button {
       flex: 1;
       font-size: 0.7rem;
+
+      &:first-child {
+        margin-right: 5px;
+      }
     }
   }
 
   /* positioning the visible cards */
   ${props =>
     props.main === props.position &&
+    // this is the main one
     css`
       display: flex;
       z-index: 10;
       background: ${props.theme.background2};
+
+      ${props.position > 0 &&
+      css`
+        &::before {
+          content: '';
+          pointer-events: none;
+          z-index: 15;
+          position: absolute;
+          width: 7.5vw;
+          height: 7.5vw;
+          max-width: 50px;
+          max-height: 50px;
+          top: 50%;
+          left: 0;
+          background: none;
+          border-left: 2px solid ${props.theme.default};
+          border-bottom: 2px solid ${props.theme.default};
+          transform: translateX(calc(-50% - 1vh)) translateY(-50%) rotate(45deg);
+        }
+      `}
+
+      &:not(:last-of-type):after {
+        content: '';
+        pointer-events: none;
+        z-index: 15;
+        position: absolute;
+        width: 7.5vw;
+        height: 7.5vw;
+        max-width: 50px;
+        max-height: 50px;
+        top: 50%;
+        right: 0;
+        background: none;
+        border-top: 2px solid ${props.theme.default};
+        border-right: 2px solid ${props.theme.default};
+        transform: translateX(calc(50% + 1vh)) translateY(-50%) rotate(45deg);
+      }
     `}
 
   ${props =>
     Math.abs(props.position - props.main) === 1 &&
+    // these will be the ones right on left and right from main
     css`
       display: flex;
       z-index: 9;
       opacity: 0.05;
-      transform: ${`translateX(calc(-80% * ${props.position - props.main}))`}
+      transform: ${`translateX(calc(80% * ${props.position - props.main}))`}
         translateY(20px);
+      * {
+        pointer-events: none;
+      }
     `}
 
   ${props =>
     Math.abs(props.position - props.main) === 2 &&
+    // these are 0 opacity. they're there just for animation purposes.
     css`
       pointer-events: none;
       display: flex;
       z-index: 8;
       opacity: 0;
-      transform: ${`translateX(calc(-80% * ${props.position - props.main}))`}
+      transform: ${`translateX(calc(80% * ${props.position - props.main}))`}
         translateY(28px);
     `}
 

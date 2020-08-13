@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { FiGithub, GoBrowser } from 'react-icons/all';
@@ -18,6 +18,7 @@ interface ProjectData {
 
 const Projects: React.FC = () => {
   const { t } = useTranslation('common');
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(10);
@@ -33,12 +34,14 @@ const Projects: React.FC = () => {
     }
     getProjects();
   }, []);
+
   return (
     <Container id="portfolio">
       <h3>{t('portfolio')}</h3>
-      <Content>
+      <Content id="portfolio-content" ref={contentRef}>
         {projects.map((project, index) => (
           <Card
+            key={project.id}
             position={index}
             main={currentProjectIndex}
             onClick={() => setCurrentProjectIndex(index)}

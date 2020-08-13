@@ -62,7 +62,7 @@ const CallToAction: React.FC = () => {
     [t],
   );
   return (
-    <Container>
+    <Container id="contact">
       <Wrapper>
         <Title>
           <h1>{t('lets-work-together')}</h1>
@@ -70,7 +70,7 @@ const CallToAction: React.FC = () => {
         </Title>
         <Form ref={formRef} onSubmit={handleSubmit}>
           <Input name="name" placeholder={t('your-name')} icon={FiUser} />
-          <Input name="email" placeholder="E-mail" icon={FiMail} />
+          <Input name="email" placeholder={t('your-email')} icon={FiMail} />
           <TextArea
             name="message"
             placeholder={t('your-message')}

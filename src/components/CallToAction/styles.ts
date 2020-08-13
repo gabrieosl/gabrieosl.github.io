@@ -74,7 +74,7 @@ interface SkillsProps {
 export const Skills = styled.button.attrs({ type: 'button' })<SkillsProps>`
   position: absolute;
   bottom: 0;
-  left: calc(50% - 22px);
+  left: 50%;
   z-index: 900;
 
   display: flex;
@@ -84,6 +84,7 @@ export const Skills = styled.button.attrs({ type: 'button' })<SkillsProps>`
   border: none;
   margin: 0.5rem;
   color: ${props => props.theme.text};
+  transform: translateX(-50%);
 
   svg {
     margin-bottom: -5px;
@@ -105,7 +106,7 @@ export const Skills = styled.button.attrs({ type: 'button' })<SkillsProps>`
       }
 
       span {
-        transform: translateY(400%) scale(4);
+        transform: translateX(-50%) translateY(400%) scale(4);
       }
     `}
 `;

@@ -4,9 +4,9 @@ export const Container = styled.div`
   min-height: calc(100% - 60px);
 
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   padding: 4rem;
   padding-top: 6rem;
@@ -18,13 +18,26 @@ export const Container = styled.div`
   }
 `;
 
+export const SkillCollection = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px auto;
+`;
+
 export const Skill = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
   width: 6em;
-  height: 6em;
+  /* height: 6em; */
 
   background: none;
   border-radius: 0.2rem;
   margin: 1rem;
+  font-size: 0.7rem;
 
   img {
     width: 6em;
@@ -33,16 +46,24 @@ export const Skill = styled.div`
     &.invert {
       filter: ${props => `invert(${props.theme.invert})`};
     }
+
+    &#native {
+      filter: saturate(50%);
+    }
   }
 
-  span {
+  span.main {
+    position: static;
+    display: flex;
+    white-space: nowrap;
+  }
+  span:not(.main) {
     position: absolute;
     display: none;
     width: 100%;
     width: 6em;
     height: 6em;
     text-align: center;
-    text-transform: capitalize;
     color: ${props => props.theme.text};
   }
 

@@ -6,6 +6,7 @@ import CallToAction from './components/CallToAction';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import GoToTop from './components/GoToTop';
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <Skills />
       <Portfolio />
       <Contact />
+      <Footer />
       <GoToTop />
     </Context>
   );
