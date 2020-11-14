@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiPause, FiPlay } from 'react-icons/fi';
 
 import { Container, Galaxy } from './styles';
-import './test.css';
+// import './test.css';
 
 const SolarSystem: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -29,8 +29,8 @@ const SolarSystem: React.FC = () => {
         <li className="mars">
           <span>Mars</span>
         </li>
-        <li className="asteroids_meteorids">
-          <span>Asteroids &amp; Meteorids</span>
+        <li className="asteroids-belt">
+          <span>Asteroids Belt</span>
         </li>
         <li className="jupiter">
           <span>Jupiter</span>

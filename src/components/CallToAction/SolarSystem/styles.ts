@@ -160,14 +160,13 @@ export const Galaxy = styled.ul<GalaxyProps>`
       }
     }
 
-    &.asteroids_meteorids {
+    &.asteroids-belt {
       width: 58%;
       padding-top: 58%;
       top: 50%;
       left: 50%;
       z-index: 96;
-      background: url(http://neography.com/experiment/circles/solarsystem/asteroids_meteorids.png)
-        center no-repeat;
+      background: url(asteroids-belt.png) center no-repeat;
       background-size: 100%;
       border: none;
     }

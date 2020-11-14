@@ -42,7 +42,12 @@ const CallToAction: React.FC = () => {
             color="primary"
             height="2em"
             width="10em"
-            onClick={() => window.location.assign('/#contact')}
+            // onClick={() => window.location.assign('#portfolio')}
+            onClick={() => {
+              document
+                .getElementById('portfolio')
+                ?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
             <span>{t('viewMyWork')}</span>
           </Button>
@@ -51,14 +56,11 @@ const CallToAction: React.FC = () => {
             color="default"
             height="2em"
             width="10em"
-            onClick={
-              () =>
-                window.scrollTo({
-                  top: 3 * window.innerHeight,
-                  behavior: 'smooth',
-                })
-              // eslint-disable-next-line react/jsx-curly-newline
-            }
+            onClick={() => {
+              document
+                .getElementById('contact')
+                ?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
             <span>{t('getInTouch')}</span>
           </Button>
@@ -67,12 +69,12 @@ const CallToAction: React.FC = () => {
       <SolarSystem />
       <Skills
         makeItTitle={isOnFirstPage}
-        onClick={() =>
+        onClick={() => {
           window.scrollTo({
             top: window.innerHeight - 60,
             behavior: 'smooth',
-          })
-        }
+          });
+        }}
       >
         <MdKeyboardArrowDown />
         <span>Skills</span>

@@ -4,7 +4,7 @@ import { Container, SkillCollection, Skill } from './styles';
 
 const CallToAction: React.FC = () => {
   return (
-    <Container>
+    <Container id="skills">
       <h5>Main Stack</h5>
       <SkillCollection>
         <Skill>

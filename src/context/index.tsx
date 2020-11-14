@@ -10,7 +10,6 @@ import common_fr from '../translations/fr/common.json';
 
 i18next.use(detector).init({
   interpolation: { escapeValue: false },
-  lng: localStorage.getItem('@gabrieosl/lang') || 'en',
   fallbackLng: 'en',
   resources: {
     en: {
